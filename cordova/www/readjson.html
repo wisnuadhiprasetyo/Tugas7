@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/ionic.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var url = "https://wisnuadhi1234.000webhostapp.com/cordova/www/json.php";
+        $.getJSON(url, function(result) {
+            console.log(result);
+            $.each(result, function(i, field) {
+                
+                var id = field.id;
+                var Jenis=field.Jenis;
+                var Nama=field.Nama;
+                var Harga=field.Harga;
+               
+                
+                $("#listview").append("<a class='item' href='form.html?id=" + id + "&Jenis=" + Jenis + "&Nama=" + Nama + "&Harga=" + Harga + "'><h2>" + Jenis + " </h2><h2>" + Nama + " </h2><h2>" + Harga + "</a>");
+            });
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px; background-color:#1af2c7;">
+        <a href="index.html" class="button button-clear">Home</a>
+        <h1 class="title">Read Database (JSON)</h1>
+    </div>
+    <br/>
+    <br/>
+    <ul class="list" id="listview">
+    </ul>
+</body>
+
+</html>
